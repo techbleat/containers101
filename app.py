@@ -3,6 +3,7 @@ from flask import Flask
 
 app = Flask(__name__)
 regions = {"uk":"London","nigeria":"Lagos","southafrica":"Johannesburg", "usa":"DC"}
+version = "1.4"
 
 @app.route("/getregion/<country>")
 def lookup(country):
@@ -12,3 +13,7 @@ def lookup(country):
     except:
         pass
     return value 
+
+@app.route("/version")
+def getversion():
+    return version
