@@ -2,8 +2,8 @@
 from flask import Flask
 
 app = Flask(__name__)
-regions = {"uk":"London","nigeria":"Lagos","southafrica":"Johannesburg", "usa":"DC"}
-version = "1.4"
+regions = {"uk":"London","nigeria":"Lagos","southafrica":"Johannesburg", "usa":"DC", "us":"DC","Ghana":"accra"}
+version = "1.5"
 
 @app.route("/getregion/<country>")
 def lookup(country):
