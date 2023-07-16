@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ("download code") {
             steps {
-                sh 'git clone https://github.com:techbleat/containers101.git'
+                sh 'git clone https://github.com/techbleat/containers101.git'
             }
         }
         stage ('build image') {
