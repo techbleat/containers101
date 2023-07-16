@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment  {
-        x=y
-    }
     stages {
         stage ("download code") {
             steps {
