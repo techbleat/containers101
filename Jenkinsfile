@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        myuser  = credentials ('dockerhub-user')
+        mypassword =  credentials ('dockerhub-password')
+    }
     stages {
         stage ("download code") {
             steps {
@@ -11,6 +15,14 @@ pipeline {
                 sh '''
                    cd containers101
                    docker build -t shegoj/marcifx:v5 .
+                '''
+            }
+        }
+        stage ('publish image') {
+            steps {
+                sh '''
+                   docker login -u $myuser -p $mypassword
+                   docker push shegoj/marcifx:v5 
                 '''
             }
         }
