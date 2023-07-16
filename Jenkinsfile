@@ -26,6 +26,13 @@ pipeline {
                 '''
             }
         }
+        stage ('deploy app') {
+            steps {
+                sh '''
+                   docker run --name nationapp --rm -d -p 5000:5000 shegoj/marcifx:v5  
+                '''
+            }
+        }
     }
     post {
         always {
