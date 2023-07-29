@@ -21,7 +21,7 @@ def lookup(country):
 def getversion():
     return version
 
-@app.route("/getsaveregion/<country>/<city>")
+@app.route("/saveregion/<country>/<city>")
 def savedata(country,city):
     value ="pass"
     try:
