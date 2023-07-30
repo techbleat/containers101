@@ -4,6 +4,8 @@ services:
     image: nginx
     ports:
       - 80:80
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
     depends_on:
       - api-3
   api-3:
@@ -13,7 +15,7 @@ services:
         - 5002:5000
      environment:
         - FLASK_APP=app.py
-      depends_on:
+     depends_on:
         - cache-server
 
   cache-server:  
